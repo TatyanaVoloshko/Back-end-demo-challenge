@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include('header') -%>
+      <main>
+        <a href="/addNew">add new article</a>
+
+        <div class="articles">
+          <% for (let i = 0; i < articles.length; i++) { %>
+          <h3><%= articles[i].title %></h3>
+          <p><%= articles[i].text.slice(0, 40) + '...' %></p>
+          <a href="/fullArticle/<%= articles[i]._id %>">see more...</a>
+          <p class="created"><%= articles[i].created_at %></p>
+          <% } %>
+        </div>
+      </main>
+      <%- include('footer') -%>
+    </div>
+  </body>
+</html>
